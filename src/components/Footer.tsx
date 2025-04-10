@@ -1,80 +1,134 @@
 "use client";
 
-import ThemeToggle from "./ThemeToggle";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { FaLinkedin, FaEnvelope, FaExternalLinkAlt } from "react-icons/fa";
 
-export default function Footer() {
+export function Footer() {
+  const links = [
+    { name: "Hanwha", href: "/hanwha" },
+    { name: "Marketwake", href: "/marketwake" },
+    { name: "Dopago", href: "/dopago" },
+    { name: "Torqata", href: "/torqata" },
+  ];
+
+  const contactLinks = [
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/jaypark99/",
+      icon: FaLinkedin,
+    },
+    {
+      name: "Read.cv",
+      href: "https://read.cv/jaypark",
+      icon: FaExternalLinkAlt,
+    },
+    {
+      name: "Mail",
+      href: "mailto:jhp0426@berkeley.edu",
+      icon: FaEnvelope,
+    },
+  ];
+
   return (
-    <footer className="w-full max-w-7xl mx-auto px-6 py-16 text-sm">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-        <div>
-          <h3 className="text-xs uppercase tracking-wider text-gray-500 mb-4">CRAFT</h3>
-          <ul className="space-y-2">
-            <li><a href="/hanwha" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">Hanwha</a></li>
-            <li><a href="/marketwake" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">Marketwake</a></li>
-            <li><a href="/dopago" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">Dopago</a></li>
-            <li><a href="/torqata" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">Torqata</a></li>
-          </ul>
+    <motion.footer
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="py-8 mt-20 border-t border-border"
+    >
+      <div className="container grid grid-cols-2 gap-8 px-4 mx-auto sm:grid-cols-2 md:grid-cols-4">
+        <div className="flex flex-col">
+          <Link href="/" className="mb-4">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-foreground"
+            >
+              <circle
+                cx="16"
+                cy="16"
+                r="15"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <path
+                d="M11 16H21"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M16 11V21"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          </Link>
         </div>
 
-        <div>
-          <h3 className="text-xs uppercase tracking-wider text-gray-500 mb-4">ARCHIVED</h3>
-          <ul className="space-y-2">
-            <li><a href="/minds" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">Minds</a></li>
-          </ul>
+        <div className="flex flex-col">
+          <h3 className="mb-4 text-sm font-medium uppercase text-muted-foreground">
+            CRAFT
+          </h3>
+          <div className="flex flex-col space-y-3">
+            {links.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
         </div>
 
-        <div>
-          <h3 className="text-xs uppercase tracking-wider text-gray-500 mb-4">CONTACT</h3>
-          <ul className="space-y-2">
-            <li>
+        <div className="flex flex-col">
+          <h3 className="mb-4 text-sm font-medium uppercase text-muted-foreground">
+            ARCHIVED
+          </h3>
+          <div className="flex flex-col space-y-3">
+            <Link
+              href="/minds"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
+            >
+              Minds
+            </Link>
+          </div>
+        </div>
+
+        <div className="flex flex-col">
+          <h3 className="mb-4 text-sm font-medium uppercase text-muted-foreground">
+            CONTACT
+          </h3>
+          <div className="flex flex-col space-y-3">
+            {contactLinks.map((link) => (
               <a
-                href="https://www.linkedin.com/in/jaypark99/"
+                key={link.name}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+                className="flex items-center space-x-2 text-sm text-foreground hover:text-muted-foreground transition-colors"
               >
-                LinkedIn
-                <svg className="ml-1 w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <span>{link.name}</span>
+                <link.icon className="w-3 h-3" />
               </a>
-            </li>
-            <li>
-              <a
-                href="https://read.cv/jaypark"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
-              >
-                Read.cv
-                <svg className="ml-1 w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a
-                href="mailto:jhp0426@berkeley.edu"
-                className="flex items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
-              >
-                Mail
-                <svg className="ml-1 w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
-            </li>
-          </ul>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="mt-16 flex flex-col md:flex-row justify-between items-start md:items-center">
-        <ThemeToggle />
-
-        <div className="text-xs text-gray-400 mt-2 md:mt-0">
-          © 2024 Jay Park. All Rights Reserved.
-          <span className="ml-1">Made with ♥ and Strawberry Matcha Lattes (120% sugar, less ice).</span>
-        </div>
+      <div className="container flex flex-col items-center pt-8 mt-8 text-sm border-t border-border md:flex-row md:justify-between">
+        <p className="text-muted-foreground text-center md:text-left">© 2024 Jay Park. All Rights Reserved.</p>
+        <p className="flex items-center mt-4 text-muted-foreground text-center md:mt-0 md:text-left">
+          Made with ❤️ and Strawberry Matcha Lattes (120% sugar, less ice).
+        </p>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

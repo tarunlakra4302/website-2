@@ -1,15 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import { useTheme } from "next-themes";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export default function ClientBody({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { theme } = useTheme();
-
   // Remove any extension-added classes during hydration
   useEffect(() => {
     // This runs only on the client after hydration
@@ -17,8 +15,15 @@ export default function ClientBody({
   }, []);
 
   return (
-    <body className={`antialiased transition-colors duration-200 ${theme}`} suppressHydrationWarning>
-      {children}
+    <body className="antialiased" suppressHydrationWarning>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="light"
+        enableSystem
+        disableTransitionOnChange
+      >
+        {children}
+      </ThemeProvider>
     </body>
   );
 }

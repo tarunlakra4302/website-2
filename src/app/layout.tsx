@@ -1,22 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientBody from "./ClientBody";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ScrollToTop } from "@/components/scroll-to-top";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Jay Park Design",
-  description: "Product Design Portfolio",
+  title: "Junhyung Park - Interface Designer",
+  description: "Interface Design Portfolio",
+  keywords: ["interface", "design", "portfolio", "junhyung", "park", "jay", "park"],
 };
 
 export default function RootLayout({
@@ -25,10 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
-      <ThemeProvider>
-        <ClientBody>{children}</ClientBody>
-      </ThemeProvider>
+    <html lang="en" className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} scroll-smooth`}>
+      <ClientBody>
+        {children}
+        <ScrollToTop />
+      </ClientBody>
     </html>
   );
 }
