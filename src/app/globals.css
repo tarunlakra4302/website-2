@@ -24,11 +24,6 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
   }
 
   .dark {
@@ -51,11 +46,6 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
   }
 }
 
@@ -80,4 +70,40 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Accordion styles to match Junhyung Park's site */
+.accordion-item[data-state="open"] .accordion-trigger svg {
+  transform: rotate(45deg);
+}
+
+/* Apply proper transitions for the blob */
+.blob-animation {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Project card hover effect */
+.project-card-hover {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.project-card-hover:hover {
+  transform: translateY(-5px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5);
 }

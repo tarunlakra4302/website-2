@@ -25,31 +25,24 @@ export function Header() {
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2">
           <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="text-foreground"
           >
             <circle
-              cx="16"
-              cy="16"
-              r="15"
+              cx="12"
+              cy="12"
+              r="11.5"
               stroke="currentColor"
-              strokeWidth="2"
             />
-            <path
-              d="M11 16H21"
+            <circle
+              cx="12"
+              cy="12"
+              r="5.5"
               stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M16 11V21"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
             />
           </svg>
         </Link>

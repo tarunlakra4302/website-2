@@ -32,6 +32,15 @@ export function ProjectPage({
             transition={{ duration: 0.5 }}
             className="space-y-3 sm:space-y-4"
           >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-xs sm:text-sm text-muted-foreground"
+            >
+              Letting you in.
+            </motion.div>
+
             <div className="text-xs sm:text-sm text-muted-foreground">{company}</div>
             <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">{title}</h1>
             <h2 className="text-base sm:text-lg text-muted-foreground">{subtitle}</h2>
@@ -64,11 +73,29 @@ export function ProjectPage({
         </SmoothSection>
       </div>
 
-      <SmoothSection delay={0.3}>
-        <div className="max-w-4xl mx-auto mt-10 sm:mt-12 md:mt-16">
-          {content}
-        </div>
-      </SmoothSection>
+      <div className="max-w-4xl mx-auto mt-10 sm:mt-12 md:mt-16">
+        <SmoothSection delay={0.3}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-8 sm:space-y-12"
+          >
+            {content}
+          </motion.div>
+        </SmoothSection>
+      </div>
+
+      <div className="py-16 text-center">
+        <SmoothSection delay={0.4}>
+          <Link
+            href="/"
+            className="inline-flex items-center space-x-2 px-6 py-3 font-medium text-white transition-colors bg-black rounded-full hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+          >
+            <span>View all projects</span>
+          </Link>
+        </SmoothSection>
+      </div>
     </div>
   );
 }

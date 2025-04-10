@@ -1,5 +1,5 @@
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 import { AboutContent } from "@/components/about-content";
 import { SmoothScroll } from "@/components/smooth-scroll";
 

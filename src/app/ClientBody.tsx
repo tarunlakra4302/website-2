@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AnimatedGradient } from "@/components/animated-gradient";
 
 export default function ClientBody({
   children,
@@ -22,6 +23,7 @@ export default function ClientBody({
         enableSystem
         disableTransitionOnChange
       >
+        <AnimatedGradient />
         {children}
       </ThemeProvider>
     </body>

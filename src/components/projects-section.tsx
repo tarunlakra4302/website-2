@@ -33,7 +33,7 @@ export function ProjectsSection() {
     {
       title: "Dashboard for retailers",
       company: "Torqata",
-      imageSrc: "https://ext.same-assets.com/3534979029/42007322.png",
+      imageSrc: "https://framerusercontent.com/images/zuQPaz91h9xsMlpPV3F5PXBeSk.jpg",
       href: "/torqata",
       tags: ["NDA", "UX Architect", "B2B SaaS", "Dashboard", "Interaction Design"],
       index: 3,
